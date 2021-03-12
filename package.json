@@ -5,8 +5,7 @@
     "build": "./node_modules/.bin/ts-node build.ts",
     "lint": "eslint . --ext .ts",
     "start": "node -r module-alias/register ./dist --env=production",
-    "start:dev": "nodemon",
-    "test": "nodemon --config ./spec/nodemon.json"
+    "start:dev": "nodemon"
   },
   "nodemonConfig": {
     "watch": [
@@ -63,13 +62,7 @@
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-async-errors": "^3.1.1",
-    "helmet": "^4.4.1",
-    "http-status-codes": "^2.1.4",
-    "jet-logger": "^1.0.4",
-    "jsonfile": "^6.1.0",
-    "module-alias": "^2.2.2",
-    "morgan": "^1.10.0"
+    "express-async-errors": "^3.1.1"
   },
   "devDependencies": {
     "@types/command-line-args": "^5.0.0",
