@@ -1,12 +1,29 @@
 import express from 'express'
+import twilio from 'twilio'
+require('dotenv').config()
 
 const app = express()
 
-app.post('/auth', (req, res) => {
-    res.send('ok')
+const accountSid = process.env.TWILIO_ACCOUNT_SID!!
+console.log('Account ID', accountSid)
+const authToken = process.env.TWILIO_AUTH_TOKEN!!
+const client = twilio(accountSid, authToken)
+
+app.post('/auth', async (req, res) => {
+    try {
+        const verification = await client.verify.services(process.env.SERVICE_ID!!)
+            .verifications
+            .create({ to: '+919619477301', channel: 'sms' })
+
+        console.log('Verification status', verification.status)
+        res.send(verification.status)
+
+    } catch(error) {
+        res.send(error)
+    }
 })
 
 const port = Number(process.env.PORT || 3000)
 app.listen(port, () => {
     console.log('Express server started on port: ' + port);
-});
+})
