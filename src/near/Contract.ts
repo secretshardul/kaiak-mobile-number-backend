@@ -9,9 +9,7 @@ const networkId = 'default'
 const contractName = 'dev-1615619158857-5968612'
 const nodeUrl = 'https://rpc.testnet.near.org'
 
-interface GreetingContract extends nearAPI.Contract {
-    setGreeting: Function,
-    getGreeting: Function,
+interface NanoAddressContract extends nearAPI.Contract {
     getNanoAddress: Function,
     setNanoAddress: Function,
 }
@@ -25,11 +23,12 @@ export default async function getContract() {
         networkId, nodeUrl,
         deps: { keyStore },
     })
+
     const account = await near.account(credentials.account_id)
 
     // Initialize contract
     return new Contract(account, contractName, {
-        viewMethods: ['getGreeting', 'getNanoAddress'],
-        changeMethods: ['setGreeting', 'setNanoAddress'],
-    }) as GreetingContract
+        viewMethods: ['getNanoAddress'],
+        changeMethods: ['setNanoAddress'],
+    }) as NanoAddressContract
 }

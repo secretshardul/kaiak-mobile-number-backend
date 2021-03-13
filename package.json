@@ -8,7 +8,8 @@
     "start:dev": "nodemon",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\", \"resolveJsonModule\": true}' mocha --timeout 15000 -r ts-node/register 'tests/**/*.ts'",
     "build:contract": "node contract/compile.js",
-    "deploy:contract": "near dev-deploy"
+    "deploy:contract": "near dev-deploy",
+    "setup-contract": "npm run build:contract && npm run deploy:contract"
   },
   "nodemonConfig": {
     "watch": [
