@@ -9,7 +9,7 @@ const networkId = 'default'
 const contractName = 'dev-1615619158857-5968612'
 const nodeUrl = 'https://rpc.testnet.near.org'
 
-interface NanoAddressContract extends nearAPI.Contract {
+export interface NanoAddressContract extends nearAPI.Contract {
     getNanoAddress: Function,
     setNanoAddress: Function,
 }
