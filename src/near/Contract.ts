@@ -12,6 +12,8 @@ const nodeUrl = 'https://rpc.testnet.near.org'
 interface GreetingContract extends nearAPI.Contract {
     setGreeting: Function,
     getGreeting: Function,
+    getNanoAddress: Function,
+    setNanoAddress: Function,
 }
 
 export default async function getContract() {
@@ -27,7 +29,7 @@ export default async function getContract() {
 
     // Initialize contract
     return new Contract(account, contractName, {
-        viewMethods: ['getGreeting'],
-        changeMethods: ['setGreeting'],
+        viewMethods: ['getGreeting', 'getNanoAddress'],
+        changeMethods: ['setGreeting', 'setNanoAddress'],
     }) as GreetingContract
 }

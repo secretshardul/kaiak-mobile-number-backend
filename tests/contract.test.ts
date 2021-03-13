@@ -14,4 +14,19 @@ describe('Contract test', async () => {
         })
         console.log('Write response', writeGreetingResponse)
     })
+
+    it('Write address', async () => {
+        const saveAddressResp = await contract.setNanoAddress({
+            mobileNumber: '1234',
+            nanoAddress: 'gg address'
+        })
+        console.log('Write address response', saveAddressResp)
+    })
+
+    it('Read address', async () => {
+        const address = await contract.getNanoAddress({ mobileNumber: '1234' })
+        console.log('Nano Address', address)
+    })
+
+
 })
