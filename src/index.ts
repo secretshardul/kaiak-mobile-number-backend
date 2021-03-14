@@ -1,9 +1,11 @@
 import express from 'express'
 import twilio from 'twilio'
+import cors from 'cors'
 import getContract, { NanoAddressContract } from './near/Contract'
 require('dotenv').config()
 
 const app = express()
+app.use(cors())
 app.use(express.urlencoded())
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID!
