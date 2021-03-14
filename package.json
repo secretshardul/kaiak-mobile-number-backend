@@ -69,7 +69,6 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-async-errors": "^3.1.1",
     "near-api-js": "^0.38.0",
     "twilio": "^3.57.0"
   },
@@ -93,7 +92,7 @@
     "eslint": "^7.21.0",
     "find": "^0.3.0",
     "fs-extra": "^9.1.0",
-    "jasmine": "^3.6.4",
+    "jet-logger": "^1.0.4",
     "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
     "supertest": "^6.1.3",
