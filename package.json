@@ -1,8 +1,10 @@
 {
   "name": "kaiak-mobile-num-wallet",
   "version": "0.0.0",
+  "main": "dist/index.js",
   "scripts": {
     "build": "./node_modules/.bin/ts-node build.ts",
+    "postinstall": "npm run build",
     "lint": "eslint . --ext .ts",
     "start": "node -r module-alias/register ./dist --env=production",
     "start:dev": "nodemon",
